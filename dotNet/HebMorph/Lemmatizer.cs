@@ -156,8 +156,8 @@ namespace HebMorph
                 {
                     foreach (var result in md.Lemmas)
                     {
-                        if (((int) HSpell.LingInfo.dmask2ps((DMask)(byte)result.DescFlag) & prefixMask) > 0)
-                            yield return new HebrewToken(word, prefLen, (DMask)(byte)result.DescFlag, result.Lemma, 0.9f) {Type = WordType.HEBREW_WITH_PREFIX};
+                        if (((byte)result.Prefix & prefixMask) > 0)
+                            yield return new HebrewToken(word, prefLen, (DMask)(byte)result.DescFlag, result.Lemma, 0.9f) { Type = WordType.HEBREW_WITH_PREFIX };
                     }
                 }
             }
